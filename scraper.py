@@ -53,7 +53,7 @@ def scrape_google_maps(search_query):
 
         scrollable_div = page.query_selector('div[role="feed"]')
 
-        for _ in range(15):  # Scrolling 15 times
+        for _ in range(13): 
             if stop_scraping:
                 print("Scraping stopped by user!")
                 browser.close()
