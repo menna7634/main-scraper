@@ -1,0 +1,37 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.32:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 187-799-791
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:15:54] "[33mGET /users_page HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:15:57] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:15:57] "[33mGET /logo.png HTTP/1.1[0m" 404 -
+ERROR:root:Error during scrolling: 'WebDriver' object has no attribute 'find_element_by_tag_name'
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:16:31] "POST / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:16:31] "[33mGET /logo.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:16:38] "GET /download/Marketing_Agencies_in_Dubai_0.csv HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:16:39] "[33mGET /sourceMap/chrome/css/download_scan_popup.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:16:39] "[33mGET /sourceMap/chrome/css/interactive_balloon.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:16:39] "[33mGET /sourceMap/chrome/css/download_scan_popup.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.32:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 187-799-791
+ERROR:root:Error during scrolling: 'WebDriver' object has no attribute 'find_element_by_tag_name'
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:20] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:20] "[33mGET /logo.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:22] "POST / HTTP/1.1" 200 -
+ERROR:root:Error during scrolling: 'WebDriver' object has no attribute 'find_element_by_tag_name'
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:35] "POST / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:35] "[33mGET /logo.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:54] "GET /download/Marketing_Agencies_in_Dubai_0.csv HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:54] "[33mGET /sourceMap/chrome/css/download_scan_popup.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:54] "[33mGET /sourceMap/chrome/css/download_scan_popup.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [24/Mar/2025 08:20:54] "[33mGET /sourceMap/chrome/css/interactive_balloon.css.map HTTP/1.1[0m" 404 -
