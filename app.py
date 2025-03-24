@@ -1,5 +1,4 @@
 import os
-import sqlite3
 from flask import Flask, jsonify, render_template, request, send_file, redirect, send_from_directory, url_for, session
 from scraper import scrape_google_maps
 
@@ -34,4 +33,5 @@ def serve_logo():
 
 
 if __name__ == "__main__":
-    app.run()
+ port = int(os.environ.get("PORT", 5000))
+ app.run(host="0.0.0.0", port=port)
