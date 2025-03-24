@@ -1,8 +1,10 @@
 import os
 from flask import Flask, jsonify, render_template, request, send_file, redirect, send_from_directory, url_for, session
 from scraper import scrape_google_maps
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 SCRAPING_DIR = "Results"
 os.makedirs(SCRAPING_DIR, exist_ok=True)

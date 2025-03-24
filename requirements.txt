@@ -4,3 +4,4 @@ pandas==2.2.3
 playwright==1.51.0
 Requests==2.32.3
 gunicorn
+flask_cors
