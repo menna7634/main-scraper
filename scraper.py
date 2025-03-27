@@ -42,12 +42,15 @@ def scrape_google_maps(search_query):
     results = []  
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+        )
         page = browser.new_page()
         page.goto(f'https://www.google.com/maps/search/{search_query}/', wait_until="domcontentloaded")
 
         try:
-            page.wait_for_selector("form:nth-child(2)", timeout=5000)
+            page.wait_for_selector("form:nth-child(2)", timeout=3000)
             page.click("form:nth-child(2)")
         except:
             pass
@@ -55,27 +58,29 @@ def scrape_google_maps(search_query):
         scrollable_div = page.query_selector('div[role="feed"]')
         previous_count = 0
         same_count_times = 0  
+        max_scroll_attempts = 15  
+        scroll_attempt = 0
 
-        while True:
+        while scroll_attempt < max_scroll_attempts:
             if stop_scraping:
                 print("Scraping stopped by user!")
-                browser.close()
-                return  
+                break  
 
             items = page.query_selector_all('div[role="feed"] > div > div[jsaction]')
             current_count = len(items)
 
             if current_count == previous_count:
                 same_count_times += 1  
-                if same_count_times >= 10:  # Increase the number of checks before stopping
+                if same_count_times >= 3:  
                     break
             else:
                 same_count_times = 0  
 
             previous_count = current_count
-
             page.evaluate("(scrollable_div) => scrollable_div.scrollBy(0, 2000);", scrollable_div)
-            time.sleep(3)  # Increase sleep time to avoid blocking
+            time.sleep(2)  
+
+            scroll_attempt += 1  
 
         print("No more new results found, stopping scrolling...")
 
@@ -101,10 +106,9 @@ def scrape_google_maps(search_query):
         browser.close()
 
     print("Basic business details extracted. Now extracting websites and emails...")
-    print("scraping count" ,scraping_count )
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"])
         context = browser.new_context()
         pages = [context.new_page() for _ in range(min(5, len(results)))]  
 
@@ -114,7 +118,6 @@ def scrape_google_maps(search_query):
 
             google_maps_link = business.get("Google Maps Link")
             if google_maps_link:
-                print("google maps link" , google_maps_link)
                 try:
                     page.goto(google_maps_link, wait_until="domcontentloaded", timeout=7000)
                     website_element = page.query_selector('a.CsEnBe')
